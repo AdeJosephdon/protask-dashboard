@@ -1,0 +1,33 @@
+{
+  "env": {
+    "browser": true,
+    "es2020": true
+  },
+  "extends": [
+    "react-app",
+    "react-app/jest",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:prettier/recommended"
+  ],
+  "plugins": ["react-refresh"],
+  "rules": {
+    "prettier/prettier": "error",
+    "react/react-in-jsx-scope": "off",
+    "no-unused-vars": ["error", { "varsIgnorePattern": "^[A-Z_]" }],
+    "react-refresh/only-export-components": ["warn", { "allowConstantExport": true }]
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "ignorePatterns": [
+    "build",
+    "dist",
+    "node_modules",
+    "vite.config.js",
+    ".eslintrc.cjs",
+    "eslint.config.js"
+  ]
+}
