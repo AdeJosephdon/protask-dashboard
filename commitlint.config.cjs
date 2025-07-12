@@ -6,5 +6,6 @@ module.exports = {
     'subject-full-stop': [0],
     'type-empty': [2, 'never'],
     'subject-empty': [2, 'never'],
+    'subject-case': [0],
   },
 };
