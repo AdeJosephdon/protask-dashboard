@@ -2,11 +2,7 @@
 import './App.css';
 
 function App() {
-  return (
-    <div className="App">
-      Welcome to Protask Dashboard... I am happy to have it.
-    </div>
-  );
+  return <div className="App">Welcome to Protask Dashboard...</div>;
 }
 
 export default App;
