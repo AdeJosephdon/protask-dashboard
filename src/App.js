@@ -12,12 +12,16 @@ import Vitals from './pages/Vitals/Vitals.js';
 import Settings from './pages/Settings/Settings.js';
 import TaskDetail from './pages/TaskDetail/TaskDetail.js';
 import NonExistentPage from './pages/NonExistentPage/NonExistentPage.js';
+import useDarkMode from './hooks/useDarkMode';
 
 function App() {
-  // const { isDark } = useContext(DataContext);
+  useDarkMode();
 
   return (
     <Router>
+      {/* <button onClick={toggleDarkMode} style={{ margin: '1rem' }}>
+        Switch to {isDarkMode === 'dark' ? 'Light' : 'Dark'} Mode
+      </button> */}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/register" element={<Register />} />
