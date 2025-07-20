@@ -14,6 +14,7 @@ import TaskDetail from './pages/TaskDetail/TaskDetail.js';
 import NonExistentPage from './pages/NonExistentPage/NonExistentPage.js';
 
 function App() {
+
   // const { isDark } = useContext(DataContext);
 
   return (
@@ -30,6 +31,9 @@ function App() {
       </Routes>
     </Router>
   );
+
+  return <div className="App">Welcome to Protask Dashboard...</div>;
+
 }
 
 export default App;
