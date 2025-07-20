@@ -15,10 +15,7 @@ import NonExistentPage from './pages/NonExistentPage/NonExistentPage.js';
 import useDarkMode from './hooks/useDarkMode';
 
 function App() {
-
   useDarkMode();
-
-
 
   return (
     <Router>
@@ -39,7 +36,6 @@ function App() {
   );
 
   return <div className="App">Welcome to Protask Dashboard...</div>;
-
 }
 
 export default App;
