@@ -1,10 +1,16 @@
+html {
+  font-size: 62.5%;
+}
+html,
 body {
   margin: 0;
-  font-family:
-    -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
-    'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
 }
 
 code {
@@ -12,24 +18,38 @@ code {
     source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 :root {
   --background-color: #ffffff;
+  --main-text-color: #000000;
   --sidebar-color: #000000;
   --header-background-color: #f8f8f8;
   --button-red-background-color: #ff6767;
+  ----button-red-hover-background-color: #fda2a2;
   --button-red-item-color: #ffffff;
   --section-border-color: #a1a3ab;
   --search-background-color: #f5f8ff;
   --red-text-color: #ff6767;
+  --form-border-color: #565454;
+  --black-icon-color: #212427;
+  --signIn-text-color: #212427;
+  --createOne-text-color: #008bd9;
 }
 
 [data-theme='dark'] {
   --background-color: #000000;
+  --main-text-color: #ffffff;
   --sidebar-color: #000000;
   --header-background-color: #272727;
-  --button-red-background-color: #ff6767;
+  --button-red-background-color: #464545;
   --button-red-item-color: #ffffff;
   --section-border-color: #a1a3ab;
   --search-background-color: #f5f8ff;
-  --red-text-color: #ff6767;
+  --black-icon-color: #999999;
+  --signIn-text-color: #999999;
 }

@@ -17,6 +17,8 @@ import useDarkMode from './hooks/useDarkMode';
 function App() {
   useDarkMode();
 
+  // const { isDarkMode, toggleDarkMode } = useDarkMode();
+
   return (
     <Router>
       {/* <button onClick={toggleDarkMode} style={{ margin: '1rem' }}>
@@ -34,8 +36,6 @@ function App() {
       </Routes>
     </Router>
   );
-
-  return <div className="App">Welcome to Protask Dashboard...</div>;
 }
 
 export default App;

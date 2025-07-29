@@ -10,7 +10,7 @@ import Settings from './pages/Settings/Settings.js';
 import TaskDetail from './pages/TaskDetail/TaskDetail.js';
 import NonExistentPage from './pages/NonExistentPage/NonExistentPage.js';
 
-// Create a simple test router that mimics your App's routing structure
+// A simple test router that mimics routing structure
 const createTestRouter = (initialRoute = '/') => {
   return createMemoryRouter(
     [
@@ -42,7 +42,7 @@ const createTestRouter = (initialRoute = '/') => {
         path: '/task-detail',
         element: <TaskDetail />,
       },
-      // Add a catch-all route for unknown paths
+      // Catch-all unknown routes
       {
         path: '*',
         element: <NonExistentPage />,
@@ -61,8 +61,6 @@ const renderWithRoute = (initialRoute = '/') => {
 
 test('renders the Home page', () => {
   renderWithRoute('/');
-  // Look for text that actually exists in your Home component
-  // Based on your previous example, it should contain email-related text
   const elements = screen.getAllByText(
     /mail me @ home|adegboyegajosephdon@gmail.com|home/i
   );

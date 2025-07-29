@@ -1,6 +1,10 @@
 body {
   font-family: Poppins;
   background-color: var(--background-color);
+  color: var(--main-text-color);
+  /* margin: 0;
+  padding: 0;
+  box-sizing: border-box; */
 }
 .App {
   text-align: center;
@@ -9,4 +13,12 @@ body {
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+}
+
+@media (max-width: 576px) {
+  .container {
+    padding: 10px;
+    margin: 0;
+    width: 100%;
+  }
 }

@@ -8,12 +8,15 @@ function PageStructure({ children }) {
 
   return (
     <div className="page-structure">
-      <Header />
+      {/* <Header /> */}
+      {!(
+        location.pathname === '/login' || location.pathname === '/register'
+      ) && <Header />}
 
       {children}
 
       {!(
-        location.pathname === '/about' || location.pathname === '/techstack'
+        location.pathname === '/login' || location.pathname === '/register'
       ) && <Header />}
     </div>
   );
