@@ -1,14 +1,18 @@
-main {
-  height: 100vh;
+.register-main {
+  display: block;
+  overflow-x: hidden;
+}
+section {
+  /* height: auto; */
   width: 100%;
   margin: 0;
-  padding: 0 0 0 2rem;
+  padding: 3rem 0 3rem 2rem;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
-main h1 {
+section h1 {
   margin-bottom: 30px;
   font-weight: bold;
   font-size: 3.6rem;
@@ -16,26 +20,30 @@ main h1 {
   z-index: 10;
   text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.6);
 }
-.login-main form {
+.register-main form {
   z-index: 10;
 }
-.login-main form div {
+.register-main form div {
   margin: 1.5rem 0;
 }
-.login-main form .input-group {
+.register-main form .input-group {
   display: flex;
   position: relative;
 }
-.login-main form .input-group > input {
+.register-main form .input-group > input {
   width: 65rem;
   height: 7.5rem;
   border: 1px solid var(--form-border-color);
   padding: 1rem;
   border-radius: 0.8rem;
-  padding-left: 4rem;
+  padding-left: 6rem;
   position: relative;
   background-color: var(--input-background-color);
 }
+.register-main form .input-group > input::placeholder {
+  color: var(--input-placeholder-color);
+}
+
 .remember-me {
   display: flex;
   align-items: center;
@@ -48,7 +56,7 @@ main h1 {
   width: auto;
   display: inline-block;
 }
-.login-main form button {
+.register-main form button {
   font-weight: medium;
   font-size: 1.6rem;
   width: 15rem;
@@ -61,29 +69,29 @@ main h1 {
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
-.login-main form button:active {
+.register-main form button:active {
   background-color: var(--button-red-hover-background-color);
   scale: 0.9;
 }
-.social-login-no-account-container {
+.social-register-no-account-container {
   font-weight: medium;
   font-size: 1.6rem;
   z-index: 10;
 }
-.social-login {
+.social-register {
   display: flex;
   /* justify-content: center; */
   align-items: center;
   gap: 1rem;
 }
-.social-login span {
+.social-register span {
   margin-right: 1rem;
 }
 .create-one {
   color: var(--createOne-text-color);
   text-decoration: none;
 }
-.login-second-bg {
+.register-second-bg {
   position: fixed;
   bottom: -100px;
   right: -350px;
@@ -97,19 +105,26 @@ main h1 {
 
 @media (max-width: 576px) {
   main {
-    padding: 1rem;
+    padding: 2rem 0.5rem;
+    overflow-x: hidden;
+  }
+  section {
+    height: auto;
+    width: 100%;
+    margin: 0;
+    padding: 3rem 0;
   }
 
-  .login-main form {
+  .register-main form {
     width: 100%;
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
   }
-  .login-main form .input-group > input {
+  .register-main form .input-group > input {
     width: 100%;
   }
-  .login-second-bg {
+  .register-second-bg {
     position: fixed;
     right: 0;
     bottom: -300px;

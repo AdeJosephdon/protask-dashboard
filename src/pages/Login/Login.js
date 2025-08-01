@@ -13,7 +13,7 @@ const Login = () => {
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',
     backgroundAttachment: 'fixed',
-    backgroundColor: '#f0f0f0',
+    // backgroundColor: '#f0f0f0',
   };
 
   return (

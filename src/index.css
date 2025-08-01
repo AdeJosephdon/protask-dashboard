@@ -39,6 +39,8 @@ code {
   --black-icon-color: #212427;
   --signIn-text-color: #212427;
   --createOne-text-color: #008bd9;
+  --input-background-color: transparent;
+  --input-placeholder-color: #999999;
 }
 
 [data-theme='dark'] {
@@ -52,4 +54,6 @@ code {
   --search-background-color: #f5f8ff;
   --black-icon-color: #999999;
   --signIn-text-color: #999999;
+  --input-background-color: #797979;
+  --input-placeholder-color: #dfdfdf;
 }
