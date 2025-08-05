@@ -81,7 +81,7 @@ describe('Accessibility tests for register page', () => {
   it('should have no accessibility violations', async () => {
     const { container } = render(
       <MemoryRouter>
-        <register />
+        <Register />
       </MemoryRouter>
     );
 

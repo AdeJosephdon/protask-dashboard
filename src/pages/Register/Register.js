@@ -10,7 +10,6 @@ const Register = () => {
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',
     backgroundAttachment: 'fixed',
-    // backgroundColor: '#f0f0f0',
     minHeight: '100vh',
     width: '100%',
   };

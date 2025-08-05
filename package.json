@@ -3,9 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@syncfusion/ej2-react-calendars": "^30.1.37",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "react": "^18.3.1",
+    "react-datepicker": "^8.4.0",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.30.1",
     "react-scripts": "5.0.1",
@@ -53,6 +55,7 @@
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-refresh": "^0.4.20",
     "husky": "^9.1.7",
+    "identity-obj-proxy": "^3.0.0",
     "jest-axe": "^10.0.0",
     "lint-staged": "^16.1.2",
     "prettier": "^3.6.2",
@@ -74,6 +77,9 @@
 "jest": {
   "transformIgnorePatterns": [
     "node_modules/(?!(.*@iconify.*)/)"
-  ]
+  ],
+  "moduleNameMapper": {
+    "\\.(css|less|scss|sass)$": "identity-obj-proxy"
+  }
 }
 }

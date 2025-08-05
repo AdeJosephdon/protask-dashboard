@@ -1,7 +1,7 @@
 // App.test.js
 import { render, screen } from '@testing-library/react';
 import { createMemoryRouter, RouterProvider } from 'react-router-dom';
-import Home from './pages/Home/Home.js';
+import Dashboard from './pages/Dashboard/Dashboard.js';
 import Register from './pages/Register/Register.js';
 import Login from './pages/Login/Login.js';
 import MyTask from './pages/MyTask/MyTask.js';
@@ -16,7 +16,7 @@ const createTestRouter = (initialRoute = '/') => {
     [
       {
         path: '/',
-        element: <Home />,
+        element: <Dashboard />,
       },
       {
         path: '/register',
@@ -61,46 +61,42 @@ const renderWithRoute = (initialRoute = '/') => {
 
 test('renders the Home page', () => {
   renderWithRoute('/');
-  const elements = screen.getAllByText(
-    /mail me @ home|adegboyegajosephdon@gmail.com|home/i
-  );
+  const elements = screen.getAllByText(/Dashboard/i);
   expect(elements.length).toBeGreaterThan(0);
 });
 
 test('renders the Login page', () => {
   renderWithRoute('/login');
   // Look for text that actually exists in your Login component
-  const elements = screen.getAllByText(/login/i);
+  const elements = screen.getAllByText(/Sign in/i);
   expect(elements.length).toBeGreaterThan(0);
 });
 
 test('renders the Register page', () => {
   renderWithRoute('/register');
   // Look for text that actually exists in your Register component
-  const elements = screen.getAllByText(/register/i);
+  const elements = screen.getAllByText(/Sign up/i);
   expect(elements.length).toBeGreaterThan(0);
 });
 
 test('renders the My Task page', () => {
   renderWithRoute('/my-task');
   // Look for text that actually exists in your MyTask component
-  const elements = screen.getAllByText(/my task|task|my tasks/i);
+  const elements = screen.getAllByText(/my task/i);
   expect(elements.length).toBeGreaterThan(0);
 });
 
 test('renders the Vitals page', () => {
   renderWithRoute('/vitals');
   // Look for text that actually exists in your Vitals component
-  const elements = screen.getAllByText(/vitals|vital|health|statistics/i);
+  const elements = screen.getAllByText(/vitals/i);
   expect(elements.length).toBeGreaterThan(0);
 });
 
 test('renders the Settings page', () => {
   renderWithRoute('/settings');
   // Look for text that actually exists in your Settings component
-  const elements = screen.getAllByText(
-    /settings|setting|preferences|configuration/i
-  );
+  const elements = screen.getAllByText(/settings/i);
   expect(elements.length).toBeGreaterThan(0);
 });
 

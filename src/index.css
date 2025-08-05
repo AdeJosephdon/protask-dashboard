@@ -29,11 +29,15 @@ code {
   --main-text-color: #000000;
   --sidebar-color: #000000;
   --header-background-color: #f8f8f8;
+  --header-black-text-color: #000000;
+  --header-box-shadow: 0.2rem 0.4rem 0.4rem rgba(0, 0, 0, 0);
+  --popUp-calendar-border-color: #000000;
   --button-red-background-color: #ff6767;
   ----button-red-hover-background-color: #fda2a2;
   --button-red-item-color: #ffffff;
   --section-border-color: #a1a3ab;
   --search-background-color: #f5f8ff;
+  --search-placeholder-color: #a1a3ab;
   --red-text-color: #ff6767;
   --form-border-color: #565454;
   --black-icon-color: #212427;
@@ -41,6 +45,8 @@ code {
   --createOne-text-color: #008bd9;
   --input-background-color: transparent;
   --input-placeholder-color: #999999;
+  --Calendar-background-color: #f5f8ff;
+  --notification-background-color: #d3d3d3;
 }
 
 [data-theme='dark'] {
@@ -48,6 +54,8 @@ code {
   --main-text-color: #ffffff;
   --sidebar-color: #000000;
   --header-background-color: #272727;
+  --header-box-shadow: 0.2rem 0.4rem 0.4rem rgba(255, 255, 255, 0.568);
+  --popUp-calendar-border-color: #ffffff;
   --button-red-background-color: #464545;
   --button-red-item-color: #ffffff;
   --section-border-color: #a1a3ab;
@@ -56,4 +64,6 @@ code {
   --signIn-text-color: #999999;
   --input-background-color: #797979;
   --input-placeholder-color: #dfdfdf;
+  --Calendar-background-color: #272727;
+  --notification-background-color: #272727;
 }

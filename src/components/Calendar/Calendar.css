@@ -1,0 +1,109 @@
+.calendar-container {
+  width: 37.8rem;
+  height: 47rem;
+  background-color: var(--Calendar-background-color);
+  color: var(--main-text-color);
+  padding: 1.6rem;
+  box-sizing: border-box;
+  border-radius: 1rem;
+  font-family: sans-serif;
+}
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.6rem;
+  padding: 0 1rem;
+}
+.calendar-header button {
+  background-color: transparent;
+}
+.react-datepicker__day-names {
+  font-size: 1.2rem;
+  background-color: #f5f8ff;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1.7rem;
+}
+/* Custom input */
+.custom-input {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 0.6rem;
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  background-color: white;
+  cursor: default;
+}
+
+/* Calendar */
+.react-datepicker {
+  background-color: #f5f8ff;
+  border: none;
+  width: 100%;
+}
+
+.react-datepicker__month-container {
+  background-color: var(--Calendar-background-color);
+  color: var(--main-text-color);
+  width: 100%;
+}
+
+.react-datepicker__header {
+  background-color: var(--Calendar-background-color);
+  color: var(--main-text-color);
+  border-bottom: none;
+}
+
+.react-datepicker__day {
+  background-color: var(--Calendar-background-color);
+  color: var(--main-text-color);
+  /* color: #000; */
+  border-radius: 8px;
+  margin: 0 2px;
+  width: 4.5rem;
+  height: 4.5rem;
+  line-height: 4.5rem;
+  font-size: 1.2rem;
+  border-radius: 0.8rem;
+  /* background-color: #f5f8ff; */
+  text-align: center;
+  transition: all 0.2s ease;
+}
+
+.react-datepicker__day--selected,
+.react-datepicker__day--keyboard-selected {
+  background-color: #3211ff;
+  color: #fff;
+  border-radius: 50%;
+}
+
+.react-datepicker__day:hover {
+  background-color: #dce2f7;
+  color: #000;
+}
+
+/* Custom header navigation */
+.custom-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+.custom-header button {
+  background-color: transparent;
+  color: var(--main-text-color);
+  border: none;
+  padding: 0.6rem 0.6rem;
+  border-radius: 4px;
+  cursor: pointer;
+  border: 1px solid #000000;
+}
+
+.custom-header button:hover {
+  scale: 1.05;
+}

@@ -1,20 +1,36 @@
 import { useEffect, useState } from 'react';
-// import useLocalStorage from 'use-local-storage';
 
 const useDarkMode = () => {
   const [isDarkMode, setIsDarkMode] = useState(() => {
-    // Initial value from localStorage or prefers-color-scheme
-    const stored = localStorage.getItem('theme');
-    if (stored) return stored === 'dark';
+    // Guard against SSR/testing environments
+    if (typeof window === 'undefined') return false;
 
-    return window.matchMedia('(prefers-color-scheme: dark)').matches;
+    try {
+      const stored = localStorage.getItem('theme');
+      if (stored) return stored === 'dark';
+
+      // Guard against environments without matchMedia
+      if (!window.matchMedia) return false;
+
+      return window.matchMedia('(prefers-color-scheme: dark)').matches;
+    } catch (error) {
+      // Fallback for testing or other environments where localStorage might not work
+      return false;
+    }
   });
 
   useEffect(() => {
-    const root = document.documentElement;
+    // Guard against SSR/testing environments
+    if (typeof window === 'undefined') return;
 
-    root.setAttribute('data-theme', isDarkMode ? 'dark' : 'light');
-    localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+    try {
+      const root = document.documentElement;
+      root.setAttribute('data-theme', isDarkMode ? 'dark' : 'light');
+      localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+    } catch (error) {
+      // Silently fail in testing environments
+      console.warn('Could not access localStorage or document', error);
+    }
   }, [isDarkMode]);
 
   const toggleDarkMode = () => {

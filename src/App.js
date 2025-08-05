@@ -4,7 +4,7 @@
 // import { DataContext } from './components/DataContext';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
-import Home from './pages/Home/Home.js';
+import Dashboard from './pages/Dashboard/Dashboard.js';
 import Register from './pages/Register/Register.js';
 import Login from './pages/Login/Login.js';
 import MyTask from './pages/MyTask/MyTask.js';
@@ -25,7 +25,7 @@ function App() {
         Switch to {isDarkMode === 'dark' ? 'Light' : 'Dark'} Mode
       </button> */}
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Dashboard />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/my-task" element={<MyTask />} />

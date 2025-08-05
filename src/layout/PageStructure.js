@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { useLocation } from 'react-router-dom';
-import Header from '../components/Home copy/Header.js';
+import Header from '../components/Header/Header.js';
 // import Footer from '../components/Home copy/Footer.js';
 
 function PageStructure({ children }) {
@@ -14,10 +14,6 @@ function PageStructure({ children }) {
       ) && <Header />}
 
       {children}
-
-      {!(
-        location.pathname === '/login' || location.pathname === '/register'
-      ) && <Header />}
     </div>
   );
 }
