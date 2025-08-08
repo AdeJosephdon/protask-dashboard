@@ -2,9 +2,6 @@ body {
   font-family: Poppins;
   background-color: var(--background-color);
   color: var(--main-text-color);
-  /* margin: 0;
-  padding: 0;
-  box-sizing: border-box; */
 }
 .App {
   text-align: center;
@@ -14,11 +11,75 @@ body {
   height: 40vmin;
   pointer-events: none;
 }
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
 
+.page-structure {
+  display: grid;
+  gap: 5rem;
+  height: 100vh;
+  grid-template-columns: 320px 1fr;
+  grid-template-rows: auto 1fr;
+  grid-template-areas:
+    'header header'
+    'sidepane main';
+
+  overflow: hidden;
+  position: relative;
+}
+
+header {
+  grid-area: header;
+  background: #d1e7dd;
+  padding: 1rem;
+}
+
+.sidepane {
+  grid-area: sidepane;
+  overflow-y: auto;
+  min-height: 0;
+  width: 32rem;
+  background: black;
+  border-radius: 0 0.8rem 0.8rem 0;
+}
+
+main {
+  grid-area: main;
+  background: #cff4fc;
+}
 @media (max-width: 576px) {
-  .container {
-    padding: 10px;
-    margin: 0;
-    width: 100%;
+  .page-structure {
+    display: grid;
+    gap: 5rem;
+    height: 100vh;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+    grid-template-areas:
+      'header'
+      'main';
+
+    overflow: hidden;
+    position: relative;
+  }
+
+  header {
+    background: #d1e7dd;
+    padding: 1rem;
+  }
+
+  .sidepane {
+    display: none;
+    padding: 1rem;
+    min-height: 0;
+  }
+
+  main {
+    grid-area: main;
+    padding: 1rem;
+    overflow-y: auto;
+    min-height: 0;
   }
 }

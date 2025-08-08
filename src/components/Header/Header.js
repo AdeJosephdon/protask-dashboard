@@ -4,14 +4,13 @@ import { useLocation } from 'react-router-dom';
 import './Header.css';
 import Notification from '../Notification/Notification.js';
 import Calendar from '../Calendar/Calendar.js';
+import SidePane from '../SidePane/SidePane.js';
 import useDarkMode from '../../hooks/useDarkMode.js';
 
 const Header = () => {
   // Dark mode functionality
   useDarkMode();
   const { isDarkMode, toggleDarkMode } = useDarkMode();
-
-  console.log('Dark mode:', isDarkMode);
 
   const currentDate = new Date();
   const day = currentDate.toLocaleDateString('en-US', { weekday: 'long' });
@@ -142,17 +141,7 @@ const Header = () => {
         <Calendar calendarClicked={calendarClicked} />
       )}
       {popUpOpen === 'dropdown' && (
-        <div
-          className="dropdown-menu"
-          style={{
-            width: '20rem',
-            height: '20rem',
-            backgroundColor: '#000000',
-            position: 'absolute',
-            right: '1rem',
-            top: '20rem',
-          }}
-        ></div>
+        <SidePane dropdownClicked={dropdownClicked} popUpOpen={popUpOpen} />
       )}
     </header>
   );

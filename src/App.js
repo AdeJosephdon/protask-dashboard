@@ -13,6 +13,7 @@ import Settings from './pages/Settings/Settings.js';
 import TaskDetail from './pages/TaskDetail/TaskDetail.js';
 import NonExistentPage from './pages/NonExistentPage/NonExistentPage.js';
 import useDarkMode from './hooks/useDarkMode';
+import TaskCategories from './pages/TaskCategories/TaskCategories.js';
 
 function App() {
   useDarkMode();
@@ -21,9 +22,6 @@ function App() {
 
   return (
     <Router>
-      {/* <button onClick={toggleDarkMode} style={{ margin: '1rem' }}>
-        Switch to {isDarkMode === 'dark' ? 'Light' : 'Dark'} Mode
-      </button> */}
       <Routes>
         <Route path="/" element={<Dashboard />} />
         <Route path="/register" element={<Register />} />
@@ -32,6 +30,7 @@ function App() {
         <Route path="/vitals" element={<Vitals />} />
         <Route path="/settings" element={<Settings />} />
         <Route path="/task-detail" element={<TaskDetail />} />
+        <Route path="/task-categories" element={<TaskCategories />} />
         <Route path="*" element={<NonExistentPage />} />
       </Routes>
     </Router>

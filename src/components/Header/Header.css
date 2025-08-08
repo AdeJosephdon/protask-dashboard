@@ -6,6 +6,7 @@ header {
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  height: auto;
   position: fixed;
   top: 0;
   padding: 2rem 7.2rem;
@@ -93,7 +94,6 @@ button:active {
 }
 .calendar-container {
   border: 1px solid var(--popUp-calendar-border-color);
-
   position: absolute;
   right: 8.5rem;
   top: 8rem;
@@ -144,5 +144,12 @@ button:active {
     left: 1rem;
     top: 19rem;
     width: 95%;
+  }
+  .sidepane {
+    position: absolute;
+    left: 1rem;
+    top: 19rem;
+    width: 95%;
+    border-radius: 0.8rem;
   }
 }
