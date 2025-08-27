@@ -63,6 +63,7 @@ const SidePane = (prop) => {
               onClick={() => {
                 prop.dropdownClicked();
               }}
+              className="button"
             >
               {' '}
               <Icon icon="fluent:important-20-filled" width="24" height="24" />

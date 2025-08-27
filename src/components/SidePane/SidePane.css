@@ -1,3 +1,7 @@
+a {
+  text-decoration: none;
+}
+
 .profile-sidepane {
   padding: 0.3rem;
   display: flex;
@@ -51,6 +55,10 @@
   color: var(--red-text-color);
 }
 .navigation-container button:hover {
+  background-color: var(--red-text-color);
+  color: var(--static-white-color);
+}
+.button:hover {
   background-color: var(--red-text-color);
   color: var(--static-white-color);
 }

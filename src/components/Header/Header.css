@@ -136,19 +136,19 @@ button:active {
   .notification-container {
     position: absolute;
     left: 1rem;
-    top: 19rem;
+    top: 17rem;
     width: 95%;
   }
   .calendar-container {
     position: absolute;
     left: 1rem;
-    top: 19rem;
+    top: 17rem;
     width: 95%;
   }
   .sidepane {
     position: absolute;
     left: 1rem;
-    top: 19rem;
+    top: 17rem;
     width: 95%;
     border-radius: 0.8rem;
   }

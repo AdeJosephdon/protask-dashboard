@@ -26,8 +26,6 @@ body {
   grid-template-areas:
     'header header'
     'sidepane main';
-
-  overflow: hidden;
   position: relative;
 }
 
@@ -39,21 +37,23 @@ header {
 
 .sidepane {
   grid-area: sidepane;
-  overflow-y: auto;
+  /* overflow-y: auto; */
   min-height: 0;
   width: 32rem;
   background: black;
   border-radius: 0 0.8rem 0.8rem 0;
+  border: 1px solid var(--sidepane-border-color);
 }
 
 main {
   grid-area: main;
-  background: #cff4fc;
+  /* background: #cff4fc; */
+  overflow: auto;
 }
 @media (max-width: 576px) {
   .page-structure {
     display: grid;
-    gap: 5rem;
+    gap: 0;
     height: 100vh;
     grid-template-columns: 1fr;
     grid-template-rows: auto 1fr;
@@ -80,6 +80,6 @@ main {
     grid-area: main;
     padding: 1rem;
     overflow-y: auto;
-    min-height: 0;
+    /* min-height: 0; */
   }
 }

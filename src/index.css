@@ -25,7 +25,7 @@ code {
 }
 
 :root {
-  --background-color: #ffffff;
+  --background-color: #f5f8ff;
   --main-text-color: #000000;
   --sidebar-color: #000000;
   --header-background-color: #f8f8f8;
@@ -36,6 +36,7 @@ code {
   ----button-red-hover-background-color: #fda2a2;
   --button-red-item-color: #ffffff;
   --section-border-color: #a1a3ab;
+  --text-ash-color: #a1a3ab;
   --search-background-color: #f5f8ff;
   --search-placeholder-color: #a1a3ab;
   --red-text-color: #ff6767;
@@ -48,6 +49,8 @@ code {
   --input-placeholder-color: #999999;
   --Calendar-background-color: #f5f8ff;
   --notification-background-color: #d3d3d3;
+  --box-shadow: rgba(0, 0, 0, 0.3);
+  --sidepane-border-color: #000000;
 }
 
 [data-theme='dark'] {
@@ -67,4 +70,6 @@ code {
   --input-placeholder-color: #dfdfdf;
   --Calendar-background-color: #272727;
   --notification-background-color: #272727;
+  --box-shadow: rgba(255, 255, 255, 0.3);
+  --sidepane-border-color: #ffffff;
 }
