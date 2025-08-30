@@ -1,0 +1,116 @@
+.vitals-main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas:
+    'vital-task-list-container vital-task-description'
+    'vital-task-list-container vital-task-description';
+  grid-gap: 4rem;
+  /* overflow-y: auto; */
+  padding: 2rem;
+}
+.vital-task-list-container {
+  grid-area: vital-task-list-container;
+  border-radius: 1.4rem;
+  padding: 1.5rem;
+  border: 1px solid var(--section-border-color);
+  overflow-y: hidden;
+}
+.vital-task-list-container-h3 {
+  padding: 1rem 0 1.5rem 0;
+  font-family: Montserrat, sans-serif;
+  font-size: 1.6rem;
+  font-weight: semibold;
+  position: relative;
+  /* display: inline-block; */
+}
+.vital-task-list-container-h3::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 1rem;
+  width: 60px;
+  height: 3px;
+  background-color: #f24e1e;
+}
+.vital-task-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  height: 100%;
+  overflow-y: auto;
+}
+.vital-task-description {
+  grid-area: vital-task-description;
+  border-radius: 1.4rem;
+  padding: 1.5rem;
+  border: 1px solid var(--section-border-color);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.vital-task-description-heading {
+  display: flex;
+  align-items: end;
+  gap: 2rem;
+}
+.vital-task-description-heading-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items: flex-start;
+  gap: 1rem;
+  font-size: 1.2rem;
+}
+.vital-task-description-heading-details h3 {
+  font-size: 1.6rem;
+  font-weight: semibold;
+  color: var(--black-text-color);
+}
+.red-span {
+  color: red;
+}
+.created-on-p {
+  color: #a1a2a3;
+  font-size: 1rem;
+}
+.vital-task-description-main-body {
+  margin: 3rem 0;
+  overflow-y: auto;
+  flex: 1;
+  font-size: 1.6rem;
+  font-weight: normal;
+  color: var(--description-text-color);
+}
+.vital-task-description-main-body ol {
+  padding: 2rem;
+}
+.vital-task-description-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: right;
+}
+.vital-task-description-buttons button {
+  margin: 0 0.5rem;
+}
+
+@media (max-width: 576px) {
+  .vitals-main {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 20rem 1fr;
+    grid-template-areas:
+      'vital-task-list-container'
+      'vital-task-description';
+    grid-gap: 1rem;
+    overflow-y: auto;
+    padding: 0.5rem;
+  }
+  .vital-task-list-container {
+    grid-area: vital-task-list-container;
+  }
+  .vital-task-description {
+    grid-area: vital-task-description;
+    overflow-y: auto;
+  }
+}

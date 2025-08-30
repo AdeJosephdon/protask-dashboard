@@ -5,8 +5,10 @@
   border-radius: 0.8rem;
   position: relative;
 }
+.task-detailed {
+  background-color: #cecece;
+}
 .task-link {
-  /* display: block; */
   display: flex;
   align-items: center;
   text-decoration: none;
@@ -33,7 +35,7 @@
   font-weight: regular;
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 5;
+  -webkit-line-clamp: 4;
   overflow: hidden;
   color: var(--text-ash-color);
 }

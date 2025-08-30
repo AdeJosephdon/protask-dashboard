@@ -7,10 +7,10 @@ import { Icon } from '@iconify/react';
 import CircularChart from './../../components/PieChart/CircularChart';
 
 const Dashboard = () => {
-  const { uncompletedTasks, completedTasks, taskStats } = useData();
+  const { uncompletedTasks, completedTasks, taskStats, loading } = useData();
 
-  console.log('Uncompleted Tasks:', uncompletedTasks);
-  console.log('Completed Tasks:', completedTasks);
+  // console.log('Uncompleted Tasks:', uncompletedTasks);
+  // console.log('Completed Tasks:', completedTasks);
 
   const uncompletedTaskDisplayed = uncompletedTasks.map((element) => {
     return (
@@ -46,7 +46,7 @@ const Dashboard = () => {
     );
   });
 
-  console.log('COmpleted Task', taskStats);
+  // console.log('COmpleted Task', taskStats);
 
   const completed = taskStats.completed;
   const inProgress = taskStats.inProgress;
@@ -137,7 +137,11 @@ const Dashboard = () => {
                 </span>
               </div>
             </div>
-            <div className="to-do-task-list">{uncompletedTaskDisplayed}</div>
+            {loading ? (
+              <div className="loading">loading</div>
+            ) : (
+              <div className="to-do-task-list">{uncompletedTaskDisplayed}</div>
+            )}
           </div>
           <div className="task-status">
             <h3>
@@ -186,7 +190,13 @@ const Dashboard = () => {
               />{' '}
               Completed Tasks
             </h3>
-            <div className="completed-task-list">{completedTaskDisplayed}</div>
+            {loading ? (
+              <div className="loading">loading</div>
+            ) : (
+              <div className="completed-task-list">
+                {completedTaskDisplayed}
+              </div>
+            )}
           </div>
         </div>
       </main>

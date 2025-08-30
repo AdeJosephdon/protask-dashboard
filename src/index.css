@@ -51,6 +51,7 @@ code {
   --notification-background-color: #d3d3d3;
   --box-shadow: rgba(0, 0, 0, 0.3);
   --sidepane-border-color: #000000;
+  --description-text-color: #747474;
 }
 
 [data-theme='dark'] {

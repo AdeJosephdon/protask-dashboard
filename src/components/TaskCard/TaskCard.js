@@ -1,9 +1,14 @@
 import './TaskCard.css';
 import { Icon } from '@iconify/react';
+import { useData } from '../../components/DataContext/Datacontext';
 import './TaskCard.css';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 const TaskCard = (prop) => {
+  const location = useLocation();
+
+  const { onExpand } = useData();
+
   let daysCompleted = null;
 
   if (prop.completedDate) {
@@ -24,8 +29,25 @@ const TaskCard = (prop) => {
   }
 
   return (
-    <div className="task-container">
-      <Link to={`/task/${prop.id}`} className="task-link">
+    <div
+      className={
+        location.pathname === '/vitals'
+          ? prop.detailedView
+            ? 'task-container task-detailed'
+            : 'task-container'
+          : 'task-container'
+      }
+    >
+      <Link
+        to={`/task/${prop.id}`}
+        className="task-link"
+        onClick={(e) => {
+          if (location.pathname === '/vitals' && prop.vital) {
+            e.preventDefault();
+            onExpand(prop.id);
+          }
+        }}
+      >
         <span className="task-status-icon">
           <Icon
             icon="ic:outline-circle"

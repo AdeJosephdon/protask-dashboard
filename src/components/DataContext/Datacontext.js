@@ -14,6 +14,7 @@ const API_BASE = process.env.REACT_APP_API_BASE;
 export const DataProvider = ({ children }) => {
   const [uncompletedTasks, setUncompletedTasks] = useState([]);
   const [completedTasks, setCompletedTasks] = useState([]);
+  const [vitalTasks, setVitalTasks] = useState([]);
   const [taskStats, setTaskStats] = useState({
     completed: 0,
     inProgress: 0,
@@ -21,6 +22,9 @@ export const DataProvider = ({ children }) => {
   });
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [detailedVital, setDetailedVital] = useState(null);
+
+  console.log('vitalTasks', vitalTasks);
 
   // Fetch uncompleted tasks
   const fetchUncompletedTasks = useCallback(async () => {
@@ -38,6 +42,16 @@ export const DataProvider = ({ children }) => {
     try {
       const res = await axios.get(`${API_BASE}?status=Completed`);
       setCompletedTasks(res.data);
+    } catch (err) {
+      setError(err.message);
+    }
+  }, []);
+
+  // Fetch vital tasks
+  const fetchVitalTasks = useCallback(async () => {
+    try {
+      const res = await axios.get(`${API_BASE}?vital=true`);
+      setVitalTasks(res.data);
     } catch (err) {
       setError(err.message);
     }
@@ -68,9 +82,15 @@ export const DataProvider = ({ children }) => {
       fetchUncompletedTasks(),
       fetchCompletedTasks(),
       fetchTaskStats(),
+      fetchVitalTasks(),
     ]);
     setLoading(false);
-  }, [fetchUncompletedTasks, fetchCompletedTasks, fetchTaskStats]);
+  }, [
+    fetchUncompletedTasks,
+    fetchCompletedTasks,
+    fetchTaskStats,
+    fetchVitalTasks,
+  ]);
 
   // Initial load
   useEffect(() => {
@@ -93,6 +113,18 @@ export const DataProvider = ({ children }) => {
     refreshData();
   };
 
+  // Update detailed vital task
+  useEffect(() => {
+    if (vitalTasks && vitalTasks.length > 0) {
+      setDetailedVital(vitalTasks[0]);
+    }
+  }, [vitalTasks]);
+
+  const onExpand = (id) => {
+    const selectedVital = vitalTasks.find((task) => task.id === id);
+    setDetailedVital(selectedVital);
+  };
+
   return (
     <DataContext.Provider
       value={{
@@ -105,6 +137,9 @@ export const DataProvider = ({ children }) => {
         updateTask,
         deleteTask,
         refreshData,
+        vitalTasks,
+        onExpand,
+        detailedVital,
       }}
     >
       {children}
