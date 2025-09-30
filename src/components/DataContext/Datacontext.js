@@ -130,7 +130,7 @@ export const DataProvider = ({ children }) => {
     refreshData();
   }, [refreshData]);
 
-  // CRUD functions for task
+  // CRUD Axios functions
   const addTask = async (task) => {
     try {
       await axios.post(`${API_BASE}/task/`, task);
@@ -195,19 +195,15 @@ export const DataProvider = ({ children }) => {
   // Pop Up text
   const [showPopup, setShowPopup] = useState(false);
 
-  // Authentication part of the code
-  // Load user from localStorage on refresh
   useEffect(() => {
     const storedUser = localStorage.getItem('user');
     if (storedUser) {
       setUser(JSON.parse(storedUser));
     }
   }, []);
-  // Login:  match credentials from all users
 
   const login = (username, password) => {
     try {
-      // 🔍 Check if a user already exists in localStorage
       const storedUser = localStorage.getItem('user');
       if (storedUser) {
         console.log(
@@ -225,7 +221,7 @@ export const DataProvider = ({ children }) => {
 
       if (foundUser) {
         setUser(foundUser);
-        localStorage.setItem('user', JSON.stringify(foundUser)); // save new user
+        localStorage.setItem('user', JSON.stringify(foundUser));
         return true;
       }
 
@@ -242,15 +238,12 @@ export const DataProvider = ({ children }) => {
     localStorage.removeItem('user');
   };
 
-  // CRUD functions for task
   const addUser = async (user) => {
     try {
       const res = await axios.post(`${API_BASE}/users/`, user);
       await refreshData();
       return res.data;
     } catch (error) {
-      // console.error('Update failed:', error);
-
       throw error.message || 'Something went wrong!';
     }
   };
@@ -264,16 +257,13 @@ export const DataProvider = ({ children }) => {
       await axios.put(`${API_BASE}/users/${id}`, updates);
       await refreshData();
     } catch (error) {
-      // Handle error logging
       console.error('Update failed:', error);
 
-      // Re-throw so the component that calls updateUser can catch it
       throw error.message || 'Something went wrong!';
     }
   };
 
   useEffect(() => {
-    // Find user with matching username + password
     const foundUser =
       allUsers &&
       user &&
@@ -283,13 +273,8 @@ export const DataProvider = ({ children }) => {
     if (foundUser) {
       setUser(foundUser);
       localStorage.setItem('user', JSON.stringify(foundUser));
-      // return true;
     }
   }, [allUsers]);
-  // const deleteUser = async (id) => {
-  //   await axios.delete(`${API_BASE}/task/${id}`);
-  //   refreshData();
-  // };
 
   return (
     <DataContext.Provider
@@ -327,10 +312,8 @@ export const DataProvider = ({ children }) => {
   );
 };
 
-// Custom hook for consuming context
 export const useData = () => useContext(DataContext);
 
-// Add PropTypes validation
 DataProvider.propTypes = {
   children: PropTypes.node.isRequired,
 };

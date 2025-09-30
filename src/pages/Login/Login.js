@@ -40,6 +40,7 @@ const Login = () => {
     <main className="login-main" style={bodyStyle}>
       <h1>Sign In</h1>
       {error && <p style={{ color: 'red' }}>{error}</p>}
+      {<p>Username: Test ; Password: 1234 or Josephdon;123456</p>}
 
       <form onSubmit={handleSubmit}>
         <div className="input-group">

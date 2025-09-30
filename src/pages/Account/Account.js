@@ -24,7 +24,6 @@ const Account = () => {
 
   const [accountFormVisible, setAccountFormVisible] = useState(true);
 
-  // Handle changes for all inputs using a single function.
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
@@ -33,7 +32,6 @@ const Account = () => {
     }));
   };
 
-  // Handle changes for all password inputs using a single function.
   const handlePasswordChange = (e) => {
     const { name, value } = e.target;
     setPasswordForm((prevData) => ({
@@ -84,7 +82,7 @@ const Account = () => {
     console.log('Submitted Data:', passwordForm);
 
     const updatedValues = {
-      ...user, // keep all properties from user
+      ...user,
       firstName: formData.firstName || user.firstName,
       lastName: formData.lastName || user.lastName,
       email: formData.email || user.email,
@@ -130,10 +128,9 @@ const Account = () => {
   const animateClick = () => {
     setAnimate(true);
 
-    // Remove the class after the animation duration (2s here)
     setTimeout(() => {
       setAnimate(false);
-    }, 2000); // must match CSS animation duration
+    }, 2000);
   };
 
   return (

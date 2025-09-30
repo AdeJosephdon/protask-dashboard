@@ -6,7 +6,6 @@ import { useData } from '../../components/DataContext/Datacontext.js';
 import { Icon } from '@iconify/react';
 import CircularChart from './../../components/PieChart/CircularChart';
 import Popup from './../../components/PopUp/PopUp.js';
-// import { all } from 'axios';
 
 const Dashboard = () => {
   const {
