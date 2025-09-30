@@ -29,7 +29,7 @@
 .login-main form .input-group > input {
   width: 65rem;
   height: 7.5rem;
-  border: 1px solid var(--form-border-color);
+  border: 1px solid var(--signIn-border-color);
   padding: 1rem;
   border-radius: 0.8rem;
   padding-left: 4rem;

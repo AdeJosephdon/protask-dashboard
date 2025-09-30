@@ -1,9 +1,16 @@
-import PageStructure from '../../layout/PageStructure.js';
+import { useState } from 'react';
 import './Register.css';
 import { Icon } from '@iconify/react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useData } from '../../components/DataContext/Datacontext.js';
 
 const Register = () => {
+  const { addUser, setUser } = useData();
+
+  const navigate = useNavigate();
+
+  // , useNavigate
+
   const bodyStyle = {
     backgroundImage: `url('/assets/login-register-bg.png')`,
     backgroundSize: 'cover',
@@ -12,6 +19,63 @@ const Register = () => {
     backgroundAttachment: 'fixed',
     minHeight: '100vh',
     width: '100%',
+  };
+  // {
+  //   "id": 1,
+  //   "firstName": "Adedayo",
+  //   "lastName": "Balogun",
+  //   "userName": "Test",
+  //   "email": "adedayo.balogun@example.com",
+  //   "contactNumber": "+2347012345678",
+  //   "position": "Front-end Developer",
+  //   "password": "1234",
+  //   "image": "https://randomuser.me/api/portraits/men/35.jpg"
+  // }
+
+  const generateRandomNumber = () => {
+    return Math.floor(Math.random() * 100);
+  };
+
+  const [newUser, setNewUser] = useState({
+    id: null,
+    firstName: '',
+    lastName: '',
+    userName: '',
+    email: '',
+    contactNumber: '',
+    position: '',
+    password: '',
+    image: `https://randomuser.me/api/portraits/men/${generateRandomNumber()}.jpg`,
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setNewUser((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  const [error, setError] = useState('');
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    // console.log('newUser:', error);
+
+    if (newUser.password === newUser.confirmPassword) {
+      try {
+        const createdUser = await addUser(newUser);
+
+        setUser(createdUser);
+        localStorage.setItem('user', JSON.stringify(createdUser));
+
+        navigate('/');
+      } catch (error) {
+        setError(error.message);
+      }
+    } else {
+      setError('Passwords do not match');
+    }
   };
 
   return (
@@ -23,7 +87,19 @@ const Register = () => {
       />
       <section className="register-form-leftside">
         <h1>Sign Up</h1>
-        <form>
+        <form onSubmit={handleSubmit}>
+          {error && (
+            <div
+              onClick={() => setError(' ')}
+              style={{
+                color: 'var(--error-message-color)',
+                fontSize: '1.6rem',
+              }}
+            >
+              {error}
+            </div>
+          )}
+
           <div className="input-group">
             <Icon
               icon="icon-park-solid:edit-name"
@@ -40,6 +116,9 @@ const Register = () => {
             />
             <input
               type="text"
+              name="firstName"
+              value={newUser.firstName}
+              onChange={handleChange}
               placeholder="Enter First Name"
               aria-label="Enter First Name"
             />
@@ -60,6 +139,9 @@ const Register = () => {
             />
             <input
               type="text"
+              name="lastName"
+              value={newUser.lastName}
+              onChange={handleChange}
               placeholder="Enter Last Name"
               aria-label="Enter Last Name"
             />
@@ -80,6 +162,9 @@ const Register = () => {
             />
             <input
               type="text"
+              name="userName"
+              value={newUser.userName}
+              onChange={handleChange}
               placeholder="Enter Username"
               aria-label="Enter Username"
             />
@@ -101,6 +186,9 @@ const Register = () => {
             />
             <input
               type="email"
+              name="email"
+              value={newUser.email}
+              onChange={handleChange}
               placeholder="Enter Email"
               aria-label="Enter Email"
             />
@@ -122,6 +210,9 @@ const Register = () => {
             />
             <input
               type="password"
+              name="password"
+              value={newUser.password}
+              onChange={handleChange}
               placeholder="Enter Password"
               aria-label="Enter Password"
             />
@@ -143,6 +234,9 @@ const Register = () => {
             />
             <input
               type="password"
+              name="confirmPassword"
+              value={newUser.confirmPassword}
+              onChange={handleChange}
               placeholder="Confirm Password"
               aria-label="Confirm Password"
             />
@@ -157,7 +251,7 @@ const Register = () => {
         <div className="social-register-no-account-container">
           <p>
             Already have an account?{' '}
-            <Link to="/register" className="create-one">
+            <Link to="/login" className="create-one">
               Sign in
             </Link>
           </p>

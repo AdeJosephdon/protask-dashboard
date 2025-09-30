@@ -32,7 +32,7 @@ a {
   align-items: center;
   height: calc(100% - 8rem);
 }
-.navigation-container button {
+.navigation-button {
   width: 28.8rem;
   height: 5.9rem;
   background: transparent;
@@ -43,28 +43,22 @@ a {
   border: none;
   color: var(--static-white-color);
   padding: 0.1rem 0.8rem;
-  /* text-align: left; */
   display: flex;
   justify-content: left;
   align-items: center;
   gap: 1.2rem;
   cursor: pointer;
+  transition: all 0.3s ease;
 }
-.navigation-container button:active {
+.button-active {
   background-color: var(--static-white-color);
   color: var(--red-text-color);
 }
-.navigation-container button:hover {
-  background-color: var(--red-text-color);
+.navigation-button:hover {
   color: var(--static-white-color);
-}
-.button:hover {
   background-color: var(--red-text-color);
-  color: var(--static-white-color);
 }
-.logout {
-  width: 100%;
-}
+
 @media (max-width: 576px) {
   .profile-sidepane {
     position: static;
@@ -72,8 +66,6 @@ a {
     width: 95%;
   }
   .navigation-container {
-    /* height: auto; */
-    /* padding: 0.5rem; */
     margin-top: 2rem;
   }
 }

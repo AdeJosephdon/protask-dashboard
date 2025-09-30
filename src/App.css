@@ -48,9 +48,17 @@ header {
 
 main {
   grid-area: main;
-  /* background: #cff4fc; */
   overflow: auto;
+  border-radius: 0.8rem;
+  border: 1px solid var(--section-border-color);
+  box-shadow: 0.2rem 0.4rem 0.4rem var(--box-shadow);
 }
+.excluded-page {
+  margin: 0 4rem 2rem 0;
+  font-size: 2rem;
+  padding: 2rem;
+}
+
 @media (max-width: 576px) {
   .page-structure {
     display: grid;
@@ -81,6 +89,8 @@ main {
     grid-area: main;
     padding: 1rem;
     overflow-y: auto;
-    /* min-height: 0; */
+  }
+  .excluded-page {
+    margin: 1rem;
   }
 }

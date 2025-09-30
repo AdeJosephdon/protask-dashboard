@@ -49,7 +49,7 @@ const CircularChart = (prop) => {
           fill="#333"
           filter="url(#whiteShadow)"
         >
-          {prop.value}%
+          {prop.value.toFixed(0)}%
         </text>
       </svg>
       <div className="chart-label">

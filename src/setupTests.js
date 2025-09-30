@@ -1,5 +1,7 @@
 // src/setupTests.js
 import '@testing-library/jest-dom';
+import React from 'react';
+import PropTypes from 'prop-types';
 
 // Mock matchMedia
 Object.defineProperty(window, 'matchMedia', {
@@ -83,3 +85,26 @@ console.error = (...args) => {
   }
   originalError.call(console, ...args);
 };
+
+// Mock @iconify/react
+const MockIcon = ({ icon, ...props }) => (
+  <div data-testid="icon" data-icon={icon} {...props} />
+);
+
+MockIcon.propTypes = {
+  icon: PropTypes.string.isRequired,
+};
+
+jest.mock('@iconify/react', () => ({
+  Icon: MockIcon,
+}));
+
+// Mock axios
+jest.mock('axios', () => ({
+  default: {
+    get: jest.fn(() => Promise.resolve({ data: {} })),
+    post: jest.fn(() => Promise.resolve({ data: {} })),
+    put: jest.fn(() => Promise.resolve({ data: {} })),
+    delete: jest.fn(() => Promise.resolve({ data: {} })),
+  },
+}));

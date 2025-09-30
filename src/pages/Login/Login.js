@@ -1,12 +1,32 @@
-// import React from 'react';
-import PageStructure from '../../layout/PageStructure.js';
 import './Login.css';
 import { Icon } from '@iconify/react';
-// import backgroundImage from '/assets/login-register-bg.png';
-
+import { useState } from 'react';
+// import { AuthContext } from '../context/AuthContext';
+import { useNavigate } from 'react-router-dom';
+import { useData } from './../../components/DataContext/Datacontext';
 import { Link } from 'react-router-dom';
 
 const Login = () => {
+  const { login } = useData();
+  const navigate = useNavigate();
+
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const success = await login(username, password);
+
+    if (success) {
+      navigate('/');
+    } else {
+      setError(
+        'Invalid username or password. Make sure your internet is connected.'
+      );
+    }
+  };
+
   const bodyStyle = {
     backgroundImage: `url('/assets/login-register-bg.png')`,
     backgroundSize: 'cover',
@@ -19,7 +39,9 @@ const Login = () => {
   return (
     <main className="login-main" style={bodyStyle}>
       <h1>Sign In</h1>
-      <form>
+      {error && <p style={{ color: 'red' }}>{error}</p>}
+
+      <form onSubmit={handleSubmit}>
         <div className="input-group">
           <Icon
             icon="mdi:account"
@@ -38,6 +60,9 @@ const Login = () => {
             type="text"
             placeholder="Enter Username"
             aria-label="Enter Username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            required
           />
         </div>
 
@@ -59,6 +84,9 @@ const Login = () => {
             type="password"
             placeholder="Enter Password"
             aria-label="Enter Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
           />
         </div>
 

@@ -1,0 +1,18 @@
+.non-existent-page-main {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 5rem;
+  font-weight: bolder;
+}
+.non-existent-page-main button {
+  width: auto;
+  padding: 1rem;
+  text-decoration: none;
+}
+.non-existent-page-main button a {
+  /* text-decoration: none; */
+  color: #ffffff;
+}

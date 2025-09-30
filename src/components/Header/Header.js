@@ -1,13 +1,15 @@
 import { useState } from 'react';
 import { Icon } from '@iconify/react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 import './Header.css';
 import Notification from '../Notification/Notification.js';
 import Calendar from '../Calendar/Calendar.js';
 import SidePane from '../SidePane/SidePane.js';
 import useDarkMode from '../../hooks/useDarkMode.js';
+import { useData } from '../DataContext/Datacontext.js';
 
 const Header = () => {
+  const { allTasks } = useData();
   // Dark mode functionality
   useDarkMode();
   const { isDarkMode, toggleDarkMode } = useDarkMode();
@@ -42,7 +44,45 @@ const Header = () => {
     }
   };
 
+  const searchClicked = () => {
+    if (popUpOpen !== 'searchClicked') {
+      setpopUpOpen('searchClicked');
+    } else {
+      setpopUpOpen(null);
+    }
+  };
+
   const location = useLocation();
+
+  const [query, setQuery] = useState('');
+
+  const filteredArray = filterFunction(query, allTasks) || [];
+
+  function filterFunction(query, data) {
+    if (!query) {
+      return '';
+    }
+    return data.filter((item) =>
+      item.title.toLowerCase().includes(query.toLowerCase())
+    );
+  }
+
+  const buttonsDisplayed =
+    filteredArray.length > 0
+      ? filteredArray.map((task) => (
+          <li key={task.id}>
+            <Link to={`/task-detail/${task.id}`}>
+              <button
+                className="search-bar-list-button"
+                onClick={() => setQuery('')}
+                style={{ width: '100%' }}
+              >
+                {task.title}
+              </button>
+            </Link>
+          </li>
+        ))
+      : null;
 
   return (
     <header>
@@ -55,13 +95,26 @@ const Header = () => {
           <span style={{ color: '#FF6767' }}>To</span>-DO
         </h1>
       )}
-      <div className="search-input">
+      <div
+        className={
+          popUpOpen === 'searchClicked'
+            ? 'search-input searchClicked'
+            : 'search-input'
+        }
+      >
         <input
           type="text"
           placeholder="Search your task here..."
           aria-label="Search tasks"
+          name="search"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
         />
-        <button type="button" aria-label="Search">
+        <button
+          type="button"
+          aria-label="Search"
+          className="search-input-button"
+        >
           <Icon
             icon="material-symbols:search"
             width="24"
@@ -69,6 +122,12 @@ const Header = () => {
             style={{ color: '#fff' }}
           />
         </button>
+
+        {buttonsDisplayed ? (
+          <ul className="search-bar-list">{buttonsDisplayed}</ul>
+        ) : (
+          ''
+        )}
       </div>
       <div className="header-icons-and-date">
         <div className="header-buttons">
@@ -112,6 +171,19 @@ const Header = () => {
                 style={{ color: 'white' }}
               />
             )}
+          </button>
+          <button
+            type="button"
+            aria-label="Search Input"
+            className="dropdown"
+            onClick={() => searchClicked()}
+          >
+            <Icon
+              icon="material-symbols:search"
+              width="24"
+              height="24"
+              style={{ color: '#fff' }}
+            />
           </button>
           <button
             type="button"

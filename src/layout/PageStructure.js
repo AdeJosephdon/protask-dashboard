@@ -6,9 +6,7 @@ function PageStructure({ children }) {
   return (
     <div className="page-structure">
       <Header />
-
       <SidePane />
-
       {children}
     </div>
   );

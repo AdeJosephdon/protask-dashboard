@@ -35,12 +35,15 @@ code {
   --button-red-background-color: #ff6767;
   ----button-red-hover-background-color: #fda2a2;
   --button-red-item-color: #ffffff;
-  --section-border-color: #a1a3ab;
+  --section-border-color: #d9d9d9;
+
   --text-ash-color: #a1a3ab;
   --search-background-color: #f5f8ff;
   --search-placeholder-color: #a1a3ab;
   --red-text-color: #ff6767;
-  --form-border-color: #565454;
+  /* --form-border-color: #565454; */
+  --form-border-color: #d9d9d9;
+  --signIn-border-color: #565454;
   --black-icon-color: #212427;
   --signIn-text-color: #212427;
   --createOne-text-color: #008bd9;
@@ -52,6 +55,10 @@ code {
   --box-shadow: rgba(0, 0, 0, 0.3);
   --sidepane-border-color: #000000;
   --description-text-color: #747474;
+  --button-orange-background-color: #f24e1e;
+  --pop-up-background-color: #f9f9f9;
+  --success-message-color: rgb(4, 177, 4);
+  --error-message-color: rgb(217, 60, 25);
 }
 
 [data-theme='dark'] {
@@ -73,4 +80,5 @@ code {
   --notification-background-color: #272727;
   --box-shadow: rgba(255, 255, 255, 0.3);
   --sidepane-border-color: #ffffff;
+  --pop-up-background-color: #272727;
 }

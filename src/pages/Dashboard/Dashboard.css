@@ -5,7 +5,9 @@
   justify-content: space-between;
   padding: 1rem;
   font-family: inter;
-  padding: 0 5rem 0 2rem;
+  padding: 0 5rem 1rem 2rem;
+  border: none;
+  box-shadow: none;
 }
 .dashboard-content-container {
   border: 1px solid var(--section-border-color);
@@ -56,6 +58,21 @@
   justify-content: center;
   gap: 1rem;
   align-items: center;
+  position: relative;
+}
+.extra-members-number {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 0.4rem;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  color: #fff;
+  position: absolute;
+  /* opacity: 40%; */
+  right: 0;
 }
 .to-do-task {
   grid-area: to-do-task;
@@ -162,6 +179,7 @@
   overflow: auto;
   display: flex;
   flex-direction: column;
+  scrollbar-width: none;
 }
 .completed-task-list > div {
   margin-bottom: 0.5rem;

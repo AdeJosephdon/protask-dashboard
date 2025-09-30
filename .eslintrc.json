@@ -29,5 +29,13 @@
     "vite.config.js",
     ".eslintrc.cjs",
     "eslint.config.js"
+  ],
+    "overrides": [
+    {
+      "files": ["**/*.test.js", "**/*.test.jsx"],
+      "rules": {
+        "react/prop-types": "off"
+      }
+    }
   ]
 }

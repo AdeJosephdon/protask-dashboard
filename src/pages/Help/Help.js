@@ -1,14 +1,11 @@
-// import React from 'react'
-
-import { Link } from 'react-router-dom';
 import PageStructure from '../../layout/PageStructure';
+import { Link } from 'react-router-dom';
 
-const Settings = () => {
+const Help = () => {
   return (
     <PageStructure>
       <main className="excluded-page">
-        <h2>Settings</h2>
-        Settings page not included in design. Go to your{' '}
+        Help page not included in design go to your{' '}
         <Link
           to={'/dashboard'}
           style={{
@@ -19,9 +16,8 @@ const Settings = () => {
           Dashboard
         </Link>
       </main>
-      ;
     </PageStructure>
   );
 };
 
-export default Settings;
+export default Help;

@@ -5,21 +5,30 @@ import './Dashboard.css';
 import { useData } from '../../components/DataContext/Datacontext.js';
 import { Icon } from '@iconify/react';
 import CircularChart from './../../components/PieChart/CircularChart';
+import Popup from './../../components/PopUp/PopUp.js';
+// import { all } from 'axios';
 
 const Dashboard = () => {
-  const { uncompletedTasks, completedTasks, taskStats, loading } = useData();
-
-  // console.log('Uncompleted Tasks:', uncompletedTasks);
-  // console.log('Completed Tasks:', completedTasks);
+  const {
+    uncompletedTasks,
+    completedTasks,
+    taskStats,
+    loading,
+    showPopup,
+    setShowPopup,
+    allUsers,
+    user,
+  } = useData();
 
   const uncompletedTaskDisplayed = uncompletedTasks.map((element) => {
     return (
       <TaskCard
         key={element.id}
+        task={element}
         title={element.title}
         description={element.task_description}
         taskStatus={element.status}
-        createdAt={element.createdAt}
+        createdAt={element.date}
         priority={element.priority}
         severity={element.severity}
         id={element.id}
@@ -33,10 +42,11 @@ const Dashboard = () => {
     return (
       <TaskCard
         key={element.id}
+        task={element}
         title={element.title}
         description={element.task_description}
         taskStatus={element.status}
-        createdAt={element.createdAt}
+        createdAt={element.date}
         priority={element.priority}
         severity={element.severity}
         id={element.id}
@@ -45,8 +55,6 @@ const Dashboard = () => {
       />
     );
   });
-
-  // console.log('COmpleted Task', taskStats);
 
   const completed = taskStats.completed;
   const inProgress = taskStats.inProgress;
@@ -60,40 +68,40 @@ const Dashboard = () => {
     month: 'long',
   });
 
+  const userImages = allUsers
+    ?.slice(0, 5)
+    .map((user) => (
+      <img
+        key={user.contactNumber}
+        src={user.image}
+        alt={`${user.firstName} ${user.lastName}`}
+        className="member's-picture"
+        style={{ width: '4rem', height: '4rem', borderRadius: '0.4rem' }}
+      />
+    ));
+
   return (
     <PageStructure>
       <main className="dashboard-main">
+        {showPopup && <Popup />}
+
         <div className="page-header">
-          <h2>Welcome back, amanuel </h2>
+          <h2>Welcome back, {user.lastName} </h2>
           <div className="images-and-invite">
             <div className="images-container">
-              <img
-                src="/assets/membersPicture1.png"
-                alt="Dashboard Illustration"
-                className="member's-picture"
-              />
-              <img
-                src="/assets/membersPicture1.png"
-                alt="Dashboard Illustration"
-                className="member's-picture"
-              />
-              <img
-                src="/assets/membersPicture1.png"
-                alt="Dashboard Illustration"
-                className="member's-picture"
-              />
-              <img
-                src="/assets/membersPicture1.png"
-                alt="Dashboard Illustration"
-                className="member's-picture"
-              />
-              <img
-                src="/assets/membersPicture1.png"
-                alt="Dashboard Illustration"
-                className="member's-picture"
-              />
+              {userImages}
+              <span
+                className="extra-members-number"
+                aria-label={`${allUsers?.length - 5} more members`}
+              >
+                {`+${allUsers?.length - 5}`}
+              </span>
             </div>
-            <button className="invite-button">
+            <button
+              className="invite-button"
+              onClick={() => setShowPopup('send-invite')}
+              aria-label="Invite A user"
+            >
               {' '}
               <Icon icon="mdi:invite" width="24" height="24" />{' '}
               <span>Invite</span>
@@ -113,7 +121,11 @@ const Dashboard = () => {
                   />{' '}
                   <span>To-Do</span>
                 </div>{' '}
-                <button className="add-task-button">
+                <button
+                  className="add-task-button"
+                  onClick={() => setShowPopup('add-task')}
+                  aria-label="Add Task"
+                >
                   {' '}
                   <Icon
                     icon="ri:add-line"
@@ -138,7 +150,9 @@ const Dashboard = () => {
               </div>
             </div>
             {loading ? (
-              <div className="loading">loading</div>
+              <div className="loading" role="status" aria-live="polite">
+                loading
+              </div>
             ) : (
               <div className="to-do-task-list">{uncompletedTaskDisplayed}</div>
             )}
@@ -151,6 +165,7 @@ const Dashboard = () => {
                 width="24"
                 height="24"
                 style={{ color: '#cfcfcf' }}
+                aria-hidden="true"
               />{' '}
               <span>Task Status</span>
             </h3>
