@@ -44,7 +44,7 @@ const SidePane = (prop) => {
               }
               aria-label="Navigate to dashboard"
               onClick={prop.dropdownClicked}
-              disabled={isMobile}
+              // disabled={isMobile}
             >
               {' '}
               <Icon icon="material-symbols:dashboard" width="24" height="24" />
@@ -60,7 +60,7 @@ const SidePane = (prop) => {
               }
               aria-label="Navigate to Vital Task"
               onClick={prop.dropdownClicked}
-              disabled={isMobile}
+              // disabled={isMobile}
             >
               {' '}
               <Icon icon="fluent:important-20-filled" width="24" height="24" />
@@ -76,7 +76,7 @@ const SidePane = (prop) => {
               }
               aria-label="Navigate to My Task"
               onClick={prop.dropdownClicked}
-              disabled={isMobile}
+              // disabled={isMobile}
             >
               <Icon icon="bx:task" width="24" height="24" /> My Task
             </button>
@@ -90,7 +90,7 @@ const SidePane = (prop) => {
               }
               aria-label="Navigate to Task Categories"
               onClick={prop.dropdownClicked}
-              disabled={isMobile}
+              // disabled={isMobile}
             >
               {' '}
               <Icon icon="carbon:collapse-categories" width="24" height="24" />
@@ -106,7 +106,7 @@ const SidePane = (prop) => {
               }
               aria-label="Navigate to Settings"
               onClick={prop.dropdownClicked}
-              disabled={isMobile}
+              // disabled={isMobile}
             >
               {' '}
               <Icon icon="mdi:settings" width="24" height="24" /> Settings
@@ -121,7 +121,7 @@ const SidePane = (prop) => {
               }
               aria-label="Navigate to Help"
               onClick={prop.dropdownClicked}
-              disabled={isMobile}
+              // disabled={isMobile}
             >
               <Icon
                 icon="material-symbols:help-rounded"
@@ -137,7 +137,7 @@ const SidePane = (prop) => {
             aria-label="Logout"
             className="navigation-button logout"
             onClick={logout}
-            disabled={isMobile}
+            // disabled={isMobile}
           >
             {' '}
             <Icon
