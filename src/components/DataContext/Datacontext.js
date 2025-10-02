@@ -266,17 +266,17 @@ export const DataProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    const foundUser =
-      allUsers &&
-      user &&
-      allUsers.find(
-        (u) => u.userName === user.userName && u.password === user.password
-      );
-    if (foundUser) {
+    if (!allUsers || !user) return;
+
+    const foundUser = allUsers.find(
+      (u) => u.userName === user.userName && u.password === user.password
+    );
+
+    if (foundUser && foundUser !== user) {
       setUser(foundUser);
       localStorage.setItem('user', JSON.stringify(foundUser));
     }
-  }, [allUsers]);
+  }, [allUsers, user]);
 
   return (
     <DataContext.Provider
