@@ -5,7 +5,6 @@ import { useData } from '../DataContext/Datacontext';
 
 const PrivateRoute = ({ children }) => {
   const { user } = useData();
-  //   const { user } = useContext(AuthContext);
   return user ? children : <Navigate to="/register" />;
 };
 

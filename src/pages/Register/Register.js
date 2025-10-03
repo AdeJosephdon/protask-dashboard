@@ -241,7 +241,6 @@ const Register = () => {
               aria-label="Confirm Password"
             />
           </div>
-          {/* termsAgreementCheckbox */}
           <div className="remember-me">
             <input type="checkbox" id="rememberMe" aria-label="Remember me" />
             <label htmlFor="rememberMe">I agree to all terms</label>
