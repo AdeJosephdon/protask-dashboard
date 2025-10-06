@@ -86,7 +86,10 @@
   align-items: center;
   justify-content: flex-end;
   width: 100%;
-  /* z-index: 1400; */
+  background-color: transparent;
+}
+.details-icon:active {
+  background-color: transparent;
 }
 
 .created-on {
@@ -139,6 +142,28 @@
 
 .task-options-buttons button:hover {
   text-decoration: underline;
+}
+.error-dismiss-container {
+  width: auto;
+  background-color: var(--background-color);
+  /* display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem; */
+  border-radius: 0.8rem;
+}
+.error-dismiss {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: red;
+  text-decoration: underline;
+  margin: 0.5rem 0;
+  text-wrap: nowrap;
+  padding: 0 10px;
+  width: 100%;
 }
 
 @media (max-width: 576px) {

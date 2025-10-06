@@ -17,7 +17,7 @@ const SidePane = (prop) => {
   const isActive = (p) => pathname === p;
 
   return (
-    <div
+    <nav
       className="sidepane"
       style={{
         display: !isMobile || prop.popUpOpen === 'dropdown' ? 'block' : 'none',
@@ -149,7 +149,7 @@ const SidePane = (prop) => {
           </button>
         </Link>
       </div>
-    </div>
+    </nav>
   );
 };
 

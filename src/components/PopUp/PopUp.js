@@ -62,21 +62,10 @@ const Popup = () => {
       setErrorMessage(error.message);
     }
 
-    // Here you can call an API or lift state up
+    setTimeout(() => {
+      setSuccessMessage('');
+    }, 5000);
   };
-
-  // const [linkToCopy, setLinkToCopy] = ;
-
-  //   const [copyStatus, setCopyStatus] = useState('');
-
-  //   const handleCopy = async () => {
-  //     try {
-  //       await navigator.clipboard.writeText(linkToCopy);
-  //       setCopyStatus('Link copied! ✅');
-  //     } catch (err) {
-  //       setCopyStatus('Failed to copy the link. 😔');
-  //     }
-  //   };
 
   const [inviteEMail, setInviteEmail] = useState('');
 
@@ -93,6 +82,31 @@ const Popup = () => {
       </div>
     </div>
   ));
+
+  const linkToCopy = inviteEMail && `www.InvitePerson.${inviteEMail}`;
+
+  const [copyStatus, setCopyStatus] = useState('');
+
+  const handleCopy = async () => {
+    if (!inviteEMail) {
+      setCopyStatus('Please add an Email. 😔');
+      setTimeout(() => {
+        setCopyStatus('');
+      }, 10000);
+      return;
+    }
+    try {
+      await navigator.clipboard.writeText(linkToCopy);
+      setCopyStatus(`"www.InvitePerson.${inviteEMail}" copied! ✅ `);
+      setInviteEmail('');
+    } catch (err) {
+      setCopyStatus('Failed to copy the link. 😔');
+    }
+
+    setTimeout(() => {
+      setCopyStatus('');
+    }, 5000);
+  };
 
   // find task to be editted
   const taskForEdit = allTasks.find((u) => u.id === editTaskId);
@@ -129,7 +143,9 @@ const Popup = () => {
       setErrorMessage(error.message);
     }
 
-    // Here you can call an API or lift state up
+    setTimeout(() => {
+      setSuccessMessage('');
+    }, 5000);
   };
 
   // console.log('taskForEdit', taskForEdit);
@@ -143,6 +159,10 @@ const Popup = () => {
     } else {
       setPopUpGeneral('API category limit exceeded.');
     }
+
+    setTimeout(() => {
+      setPopUpGeneral('');
+    }, 10000);
   };
 
   return (
@@ -166,6 +186,7 @@ const Popup = () => {
                     name="inviteEMail"
                     value={inviteEMail}
                     onChange={(e) => setInviteEmail(e.target.value)}
+                    aria-label="Input for email address"
                   />
                   <button>Send Invite</button>
                 </form>
@@ -178,12 +199,15 @@ const Popup = () => {
 
               <div className="invite-section">
                 <h3 className="popup-content-header">Invite Link</h3>
+
+                {copyStatus && <div style={{ color: 'red' }}>{copyStatus}</div>}
                 <p className="invite-input">
                   <input
                     name="copyInvitation"
                     value={`www.InvitePerson.${inviteEMail}`}
+                    aria-label="copy invitation link"
                   />
-                  <button>Copy Link</button>
+                  <button onClick={handleCopy}>Copy Link</button>
                 </p>
               </div>
             </div>

@@ -4,7 +4,6 @@ import { useData } from '../../components/DataContext/Datacontext.js';
 import './TaskCard.css';
 import { Link, useLocation } from 'react-router-dom';
 import { useState } from 'react';
-// import { useData } from '../../components/DataContext/Datacontext';
 
 const TaskCard = (prop) => {
   const location = useLocation();
@@ -140,6 +139,8 @@ const TaskCard = (prop) => {
             : 'task-container'
           : 'task-container'
       }
+      role="region"
+      aria-label={`Task card for ${prop.title}`}
     >
       <Link
         to={`/task-detail/${prop.id}`}
@@ -189,10 +190,10 @@ const TaskCard = (prop) => {
           )}
         </div>
         <div className="task-image-date-container">
-          <span className="details-icon" onClick={() => setShowOptions(false)}>
-            {/* <Icon icon="ph:dots-three-outline-thin" width="24" height="24" /> */}
-            <div style={{ width: '24px', height: '24px' }}>{''}</div>
-          </span>
+          <div style={{ width: '100%', height: '24px' }} aria-hidden="true">
+            {''}
+          </div>
+
           <img
             src={prop.image}
             style={{
@@ -217,14 +218,20 @@ const TaskCard = (prop) => {
       {/* showOptions, setShowOptions */}
 
       <div className="task-options">
-        <span
+        <button
           className="details-icon"
           onClick={() => setShowOptions((prev) => !prev)}
+          aria-label="Open task options menu"
+          aria-expanded={showOptions}
         >
           <Icon icon="ph:dots-three-outline-thin" width="24" height="24" />
-        </span>
+        </button>
         {showOptions && (
-          <div className="task-options-buttons">
+          <div
+            className="task-options-buttons"
+            role="navigation"
+            aria-label="Navigation Buttons"
+          >
             {' '}
             <button className="vital-button" onClick={vital}>
               {clickedTask.vital ? 'Vital' : 'Remove from Vital'}
@@ -244,9 +251,14 @@ const TaskCard = (prop) => {
           </div>
         )}
         {error && (
-          <div className="task-options-buttons" onClick={() => setError(false)}>
-            {' '}
-            <div>{error}</div>
+          <div className="error-dismiss-container" role="alert">
+            <button
+              onClick={() => setError(false)}
+              aria-label="Dismiss error"
+              className="error-dismiss"
+            >
+              {error}
+            </button>
           </div>
         )}
       </div>

@@ -179,6 +179,7 @@ input[type='radio']:checked {
   align-items: center;
   height: 4.5rem;
   gap: 1.5rem;
+  cursor: pointer;
 }
 .members-container img {
   width: 4.5rem;

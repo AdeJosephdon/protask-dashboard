@@ -1,7 +1,9 @@
 // src/setupTests.js
 import '@testing-library/jest-dom';
-import React from 'react';
 import PropTypes from 'prop-types';
+import { toHaveNoViolations } from 'jest-axe';
+
+expect.extend(toHaveNoViolations);
 
 // Mock matchMedia
 Object.defineProperty(window, 'matchMedia', {

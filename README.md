@@ -102,15 +102,15 @@ This project uses Jest + React Testing Library.
 
 npm test
 
-- Example tested components:
+### Example tested components:
 
-App.js → validates required fields.
+- Popup.js → validates form submissions, handles invite functionality, tests all popup variants (send-invite, add-task, edit-task, add-priority, add-task-status, edit-task-priority, edit-task-status), includes accessibility testing with axe.
 
-TaskForm → validates required fields.
+- Header.js → validates search functionality with filtering, tests dark mode toggle, manages multiple popup states (notification, calendar, sidepane), displays correct page titles based on routes, includes accessibility testing with proper ARIA labels.
 
-LoginForm → handles incorrect login attempts.
+- SidePane.js → validates navigation with active route highlighting, tests user profile display, handles responsive behavior (mobile/desktop), tests logout functionality, includes accessibility testing with semantic navigation element.
 
-ProtectedRoute → prevents access without token.
+- TaskCard.js → validates task CRUD operations (edit, delete, complete), handles vital task toggling, displays priority levels with correct styling, calculates completion days, manages options menu toggle, tests navigation behavior on different routes, includes accessibility testing and error handling.
 
 ## 📊 Screenshots
 
