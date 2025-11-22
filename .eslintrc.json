@@ -15,7 +15,10 @@
     "prettier/prettier": "error",
     "react/react-in-jsx-scope": "off",
     "no-unused-vars": ["error", { "varsIgnorePattern": "^[A-Z_]" }],
-    "react-refresh/only-export-components": ["warn", { "allowConstantExport": true }]
+    "react-refresh/only-export-components": [
+      "warn",
+      { "allowConstantExport": true }
+    ]
   },
   "settings": {
     "react": {
@@ -30,7 +33,7 @@
     ".eslintrc.cjs",
     "eslint.config.js"
   ],
-    "overrides": [
+  "overrides": [
     {
       "files": ["**/*.test.js", "**/*.test.jsx"],
       "rules": {
