@@ -140,7 +140,7 @@ const Login = () => {
         src={'/assets/login-second-bg.webp'}
         alt="Login Background"
         className="login-second-bg"
-        fetchpriority="high"
+        fetchPriority="high"
       />
     </main>
   );
