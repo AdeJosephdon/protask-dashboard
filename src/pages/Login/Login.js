@@ -28,7 +28,7 @@ const Login = () => {
   };
 
   const bodyStyle = {
-    backgroundImage: `url('/assets/login-register-bg.png')`,
+    backgroundImage: `url('/assets/WEBP-login-register-bg.webp')`,
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',
@@ -137,9 +137,10 @@ const Login = () => {
         </p>
       </div>
       <img
-        src={'/assets/login-second-bg.png'}
+        src={'/assets/login-second-bg.webp'}
         alt="Login Background"
         className="login-second-bg"
+        fetchpriority="high"
       />
     </main>
   );

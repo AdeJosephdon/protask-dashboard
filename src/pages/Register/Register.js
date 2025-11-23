@@ -12,7 +12,7 @@ const Register = () => {
   // , useNavigate
 
   const bodyStyle = {
-    backgroundImage: `url('/assets/login-register-bg.png')`,
+    backgroundImage: `url('/assets/WEBP-login-register-bg.webp')`,
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',
@@ -81,7 +81,7 @@ const Register = () => {
   return (
     <main className="register-main" style={bodyStyle}>
       <img
-        src={'/assets/signUp-register.png'}
+        src={'/assets/WEBPsignUp-register.webp'}
         alt="register Background"
         className="register-second-bg"
       />
