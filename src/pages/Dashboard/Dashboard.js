@@ -6,6 +6,7 @@ import { useData } from '../../components/DataContext/Datacontext.js';
 import { Icon } from '@iconify/react';
 import CircularChart from './../../components/PieChart/CircularChart';
 import Popup from './../../components/PopUp/PopUp.js';
+import { motion } from "framer-motion";
 
 const Dashboard = () => {
   const {
@@ -106,8 +107,15 @@ const Dashboard = () => {
               <span>Invite</span>
             </button>
           </div>
+
         </div>
-        <div className="dashboard-content-container">
+        <motion.div className="dashboard-content-container" 
+        initial={{ y: -50, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{
+            duration: 0.6,
+            ease: "easeOut",
+          }}>
           <div className="to-do-task">
             <div className="to-do-task-header">
               <div className="to-do-header">
@@ -212,7 +220,7 @@ const Dashboard = () => {
               </div>
             )}
           </div>
-        </div>
+        </motion.div>
       </main>
     </PageStructure>
   );

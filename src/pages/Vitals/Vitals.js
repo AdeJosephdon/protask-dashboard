@@ -6,6 +6,7 @@ import './Vitals.css';
 import { Icon } from '@iconify/react/dist/iconify.js';
 import Popup from '../../components/PopUp/PopUp';
 import { useState } from 'react';
+import { motion } from 'framer-motion';
 
 const Vitals = () => {
   const {
@@ -85,7 +86,13 @@ const Vitals = () => {
 
   return (
     <PageStructure>
-      <main className="vitals-main">
+      <motion.main
+        initial={{ y: 50, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{
+            duration: 0.6,
+            ease: "easeIn",
+          }} className="vitals-main">
         {showPopup && <Popup />}
 
         <div className="vital-task-list-container">
@@ -173,7 +180,7 @@ const Vitals = () => {
             )}
           </div>
         )}
-      </main>
+      </motion.main>
     </PageStructure>
   );
 };

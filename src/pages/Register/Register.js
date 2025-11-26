@@ -245,7 +245,7 @@ const Register = () => {
             <input type="checkbox" id="rememberMe" aria-label="Remember me" />
             <label htmlFor="rememberMe">I agree to all terms</label>
           </div>
-          <button type="submit">Register</button>
+          <button type="submit"><span>Register</span></button>
         </form>
         <div className="social-register-no-account-container">
           <p>

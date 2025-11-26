@@ -53,7 +53,7 @@
   font-size: 1.6rem;
   width: 15rem;
   height: 7.5rem;
-  background-color: var(--button-red-background-color);
+  background-color: var(----button-red-hover-background-color);
   color: var(--button-red-item-color);
   border: none;
   border-radius: 0.8rem;
@@ -62,14 +62,23 @@
   transition: background-color 0.3s ease;
 }
 .login-main form button:active {
-  background-color: var(--button-red-hover-background-color);
+  background-color: var(--button-red-background-color);
   scale: 0.9;
+}
+.login-main form button:hover {
+  background-color: var(--button-red-background-color);
+  /* scale: 0.9; */
+}
+.login-main form button:hover span{
+  /* background-color: var(--button-red-background-color); */
+  scale: 1.1;
 }
 .social-login-no-account-container {
   font-weight: medium;
   font-size: 1.6rem;
   z-index: 10;
 }
+
 .social-login {
   display: flex;
   /* justify-content: center; */

@@ -77,7 +77,7 @@ section h1 {
   font-size: 1.6rem;
   width: 15rem;
   height: 7.5rem;
-  background-color: var(--button-red-background-color);
+  background-color: var(----button-red-hover-background-color);
   color: var(--button-red-item-color);
   border: none;
   border-radius: 0.8rem;
@@ -85,9 +85,13 @@ section h1 {
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
-.register-main form button:active {
-  background-color: var(--button-red-hover-background-color);
-  scale: 0.9;
+.register-main form button:hover {
+  background-color: var(--button-red-background-color);
+  /* scale: 0.9; */
+}
+.register-main form button:hover span{
+  /* background-color: var(--button-red-background-color); */
+  scale: 1.1;
 }
 .social-register-no-account-container {
   font-weight: medium;

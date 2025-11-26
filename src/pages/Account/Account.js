@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import { useState } from 'react';
 import PageStructure from '../../layout/PageStructure';
 import './Account.css';
@@ -135,7 +136,13 @@ const Account = () => {
 
   return (
     <PageStructure>
-      <main className="account-main">
+      <motion.main
+          initial={{ y: 50, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{
+            duration: 0.3,
+            ease: "easeIn",
+          }} className="account-main">
         <div className="account-header">
           <h3 className="account-header-h3">Account Information</h3>
           <div onClick={() => handleGoBack()} className="go-back-div">
@@ -265,7 +272,7 @@ const Account = () => {
             </button>
           </div>
         </div>
-      </main>
+      </motion.main>
     </PageStructure>
   );
 };

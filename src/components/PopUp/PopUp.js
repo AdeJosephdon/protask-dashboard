@@ -2,6 +2,7 @@
 import { useData } from '../DataContext/Datacontext.js';
 import './PopUp.css';
 import { useState } from 'react';
+import { motion } from 'framer-motion';
 
 const Popup = () => {
   const {
@@ -166,7 +167,13 @@ const Popup = () => {
   };
 
   return (
-    <div className="page">
+    <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{
+            duration: 0.8,
+            ease: "easeIn",
+          }}  className="page">
       {showPopup === 'send-invite' ? (
         <div className="popup-overlay">
           <div className="popup-box">
@@ -617,7 +624,7 @@ const Popup = () => {
           </div>
         </div>
       ) : null}
-    </div>
+    </motion.div>
   );
 };
 

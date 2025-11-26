@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Icon } from '@iconify/react/dist/iconify.js';
@@ -40,7 +41,10 @@ const TaskCategories = () => {
   return (
     <PageStructure>
       {createCategory ? (
-        <main className="taskCategories-main">
+        <motion.main
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8 }} className="taskCategories-main">
           {showPopup && <Popup />}
 
           <div className="taskCategories-header">
@@ -77,9 +81,13 @@ const TaskCategories = () => {
               </div>
             </form>
           </div>
-        </main>
+        </motion.main>
       ) : (
-        <main className="taskCategories-main">
+
+        <motion.main
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8 }} className="taskCategories-main">
           {showPopup && <Popup />}
 
           <div className="taskCategories-header">
@@ -311,7 +319,7 @@ const TaskCategories = () => {
               </tbody>
             </table>
           </div>
-        </main>
+        </motion.main>
       )}
     </PageStructure>
   );

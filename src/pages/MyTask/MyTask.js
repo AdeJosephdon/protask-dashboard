@@ -1,4 +1,5 @@
 // import React from 'react';
+import { motion } from 'framer-motion';
 import PageStructure from '../../layout/PageStructure';
 import { useData } from '../../components/DataContext/Datacontext.js';
 import TaskCard from '../../components/TaskCard/TaskCard';
@@ -137,11 +138,18 @@ const MyTask = () => {
                 </p>
               </div>
             </div>
-            <div className="myTask-task-description-main-body">
+
+            <motion.div  
+        initial={{ y: 50, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{
+            duration: 0.6,
+            ease: "easeOut",
+          }} className="myTask-task-description-main-body">
               {detailedMyTask && <p>{detailedMyTask.task_description}</p>}
 
               {detailedMyTask && <ol>{moreDetailsList}</ol>}
-            </div>
+            </motion.div>
             <p className="myTask-task-description-buttons">
               <button onClick={() => deleteTask()}>
                 <Icon
