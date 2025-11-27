@@ -168,12 +168,14 @@ const Popup = () => {
 
   return (
     <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{
-            duration: 0.8,
-            ease: "easeIn",
-          }}  className="page">
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{
+        duration: 0.8,
+        ease: 'easeIn',
+      }}
+      className="page"
+    >
       {showPopup === 'send-invite' ? (
         <div className="popup-overlay">
           <div className="popup-box">

@@ -69,7 +69,7 @@
   background-color: var(--button-red-background-color);
   /* scale: 0.9; */
 }
-.login-main form button:hover span{
+.login-main form button:hover span {
   /* background-color: var(--button-red-background-color); */
   scale: 1.1;
 }

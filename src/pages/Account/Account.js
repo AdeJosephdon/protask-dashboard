@@ -137,12 +137,14 @@ const Account = () => {
   return (
     <PageStructure>
       <motion.main
-          initial={{ y: 50, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{
-            duration: 0.3,
-            ease: "easeIn",
-          }} className="account-main">
+        initial={{ y: 50, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{
+          duration: 0.3,
+          ease: 'easeIn',
+        }}
+        className="account-main"
+      >
         <div className="account-header">
           <h3 className="account-header-h3">Account Information</h3>
           <div onClick={() => handleGoBack()} className="go-back-div">

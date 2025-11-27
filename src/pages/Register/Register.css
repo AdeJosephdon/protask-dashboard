@@ -89,7 +89,7 @@ section h1 {
   background-color: var(--button-red-background-color);
   /* scale: 0.9; */
 }
-.register-main form button:hover span{
+.register-main form button:hover span {
   /* background-color: var(--button-red-background-color); */
   scale: 1.1;
 }

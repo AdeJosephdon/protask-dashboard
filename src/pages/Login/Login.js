@@ -95,8 +95,9 @@ const Login = () => {
           <input type="checkbox" id="rememberMe" aria-label="Remember me" />
           <label htmlFor="rememberMe">Remember me</label>
         </div>
-          <button type="submit"><span>Login</span></button>
-
+        <button type="submit">
+          <span>Login</span>
+        </button>
       </form>
       <div className="social-login-no-account-container">
         <p className="social-login">

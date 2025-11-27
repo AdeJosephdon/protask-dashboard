@@ -44,7 +44,9 @@ const TaskCategories = () => {
         <motion.main
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.8 }} className="taskCategories-main">
+          transition={{ duration: 0.8 }}
+          className="taskCategories-main"
+        >
           {showPopup && <Popup />}
 
           <div className="taskCategories-header">
@@ -83,11 +85,12 @@ const TaskCategories = () => {
           </div>
         </motion.main>
       ) : (
-
         <motion.main
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.8 }} className="taskCategories-main">
+          transition={{ duration: 0.8 }}
+          className="taskCategories-main"
+        >
           {showPopup && <Popup />}
 
           <div className="taskCategories-header">

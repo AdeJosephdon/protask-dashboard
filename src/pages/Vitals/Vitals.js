@@ -88,11 +88,13 @@ const Vitals = () => {
     <PageStructure>
       <motion.main
         initial={{ y: 50, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{
-            duration: 0.6,
-            ease: "easeIn",
-          }} className="vitals-main">
+        animate={{ y: 0, opacity: 1 }}
+        transition={{
+          duration: 0.6,
+          ease: 'easeIn',
+        }}
+        className="vitals-main"
+      >
         {showPopup && <Popup />}
 
         <div className="vital-task-list-container">
